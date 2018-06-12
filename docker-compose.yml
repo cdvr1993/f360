@@ -2,7 +2,7 @@ version: '3'
 services:
   # frontend:
   backend:
-    image: python:3.6-alpine
+    build: ./backend
     networks:
       - internal
     volumes:
@@ -12,14 +12,14 @@ services:
       - sh
       - -c
       - >
-        pip install -r requirements.txt &&
-        ./manage.py runserver
+        ./manage.py runserver 0.0.0.0:8000
     ports:
       - 8000:8000
   psql:
     image: postgres:10-alpine
     environment:
       POSTGRES_PASSWORD: toor
+      POSTGRES_DB: f360
     networks:
       - internal
 
