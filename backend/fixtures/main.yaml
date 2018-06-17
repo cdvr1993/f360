@@ -1,0 +1,88 @@
+- model: surveys.generation
+  pk: 1
+  fields:
+    name: I
+- model: surveys.generation
+  pk: 2
+  fields:
+    name: II
+- model: surveys.company
+  pk: 1
+  fields:
+    name: Colegio Altamira
+- model: surveys.survey
+  pk: 1
+  fields:
+    # The name is only needed to identify the survey easily
+    name: colegio altamira - middle management
+- model: surveys.participant
+  pk: 1
+  fields:
+    company: 1
+    name: Cristian Velazquez
+    email: cdvr1993@gmail.com
+    job: Software Engineer
+    generation: 1
+    survey: 1
+- model: surveys.participant
+  pk: 2
+  fields:
+    company: 1
+    name: Maria Ines Rodriguez
+    email: cdvr1993@gmail.com
+    job: Software Engineer
+    generation: 1
+- model: surveys.peer
+  pk: 1
+  fields:
+    name: Jonatan Velazquez
+    email: cdvr1993@gmail.com
+    job: Project Manager
+    participant: 1
+- model: surveys.peer
+  pk: 2
+  fields:
+    name: Sergio Velazquez
+    email: cdvr1993@gmail.com
+    job: Project Specialist
+    participant: 1
+- model: surveys.category
+  pk: 1
+  fields:
+    name: Vision de negocio
+- model: surveys.category
+  pk: 2
+  fields:
+    name: Organización interfuncional
+- model: surveys.question
+  pk: 1
+  fields:
+    category: 1
+    survey: 1
+    statement: >
+      Tiene facilidad para detectar oportunidades y riesgos
+      para la empresa en el corto y mediano plazo.
+    choices: 1|2|3|4|5
+- model: surveys.question
+  pk: 2
+  fields:
+    category: 2
+    survey: 1
+    statement: >
+      Entiende a la empresa como un todo, es consiente que
+      lo que pase en su área afecta a las otras.
+    choices: 1|2|3|4|5
+- model: surveys.answer
+  pk: 1
+  fields:
+    participant: 1
+    peer: 1
+    question: 1
+    value: "4"
+- model: surveys.answer
+  pk: 2
+  fields:
+    participant: 1
+    peer: 1
+    question: 2
+    value: "3"
